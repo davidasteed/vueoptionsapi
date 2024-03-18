@@ -24,13 +24,11 @@ export default {
   },
   methods: {
     processSubmitEvent(value) {
-      console.log("processSubmitEvent occurred with value: ", value);
       if (value) {
         this.childFormSubmitted = true;
       }
     },
     processChildFormData(value) {
-      console.log("processChildFormData occurred with value: ", value);
       this.childFormData = value;
     }
   }

@@ -118,18 +118,6 @@ export default {
   },
   emits: ["childFormSubmitted", "childFormData"],
   methods: {
-    displayDebugData() {
-      console.log("this.category: ", this.category);
-      console.log("this.typesChosen: ", this.typesChosen);
-      console.log("this.subject: ", this.subject);
-      console.log("this.description: ", this.description);
-      console.log("files: ", this.files);
-      console.log(
-        "file name of first file: ",
-        this.files[0] ? this.files[0].name : ""
-      );
-      console.log("formErrors: ", this.formErrors);
-    },
     categoryChosen() {
       for (let i = 0; i < Object.keys(defaultCategories).length; i++) {
         const key = getKeyByValue(defaultCategories, this.category)[0];
@@ -142,14 +130,10 @@ export default {
       document.getElementById("fileUpload").click();
     },
     onFileChange(event) {
-      console.log("onFileChange() event.target.files: ", event.target.files);
       this.files.push(event.target.files[0]);
     },
     onFileDelete(fileName) {
-      console.log("file delete event for file: ", fileName);
-      console.log("file array was: ", this.files);
       this.files = this.files.filter((element) => element.name != fileName);
-      console.log("file array is now: ", this.files);
     },
     validateForm() {
       let returnValue = true;
@@ -201,13 +185,9 @@ export default {
         ? (this.formSubmitted = true)
         : (this.formSubmitted = false);
       if (this.formSubmitted) {
-        console.log("form was submitted");
         this.buildFormData();
-        console.log("formData: ", this.formData);
         this.$emit("childFormSubmitted", this.formSubmitted);
         this.$emit("childFormData", this.formData);
-      } else {
-        console.log("form was NOT submitted");
       }
     }
   },
