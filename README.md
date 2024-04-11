@@ -1,6 +1,6 @@
-# fwdthink
+# vueoptionsapi
 
-Vue frontend for Developer Exercise
+basic Vue frontend using options api
 
 ##### To run this application:
 
